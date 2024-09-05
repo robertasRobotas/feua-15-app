@@ -1,0 +1,23 @@
+.main {
+  background-color: blanchedalmond;
+  padding: 0.5rem;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 1.6rem;
+}
+
+.main ul {
+  display: flex;
+  list-style: none;
+  gap: 1rem;
+}
+
+.rigtHandSection {
+  display: flex;
+  gap: 1rem;
+}
