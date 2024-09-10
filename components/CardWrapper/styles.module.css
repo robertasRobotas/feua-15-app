@@ -1,0 +1,9 @@
+.main {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  justify-items: center;
+}

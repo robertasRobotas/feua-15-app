@@ -3,6 +3,7 @@ import axios from "axios";
 import cookie from "js-cookie";
 import styles from "./styles.module.css";
 import { useRouter } from "next/router";
+import Button from "../Button/Button";
 
 const LoginForm = () => {
   const router = useRouter();
@@ -10,9 +11,12 @@ const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isShowError, setShowError] = useState(false);
+  const [isButtonLoading, setButtonLoading] = useState(false);
 
   const loginUser = async () => {
     try {
+      setButtonLoading(true);
+
       const body = {
         email: email,
         password: password,
@@ -22,13 +26,17 @@ const LoginForm = () => {
 
       if (response.status === 200) {
         cookie.set("inventory_app_jwt", response.data.token);
+        cookie.set("company_id", response.data.companyId);
         router.push("/");
       }
 
       console.log(response);
+
+      setButtonLoading(false);
     } catch (err) {
       console.log("err", err);
       setShowError(true);
+      setButtonLoading(false);
     }
   };
 
@@ -53,13 +61,7 @@ const LoginForm = () => {
 
       {isShowError && <h5 className={styles.error}>Bad email or password</h5>}
 
-      <button
-        onClick={() => {
-          loginUser();
-        }}
-      >
-        Login
-      </button>
+      <Button onClick={loginUser} title="Login" isLoading={isButtonLoading} />
     </div>
   );
 };
