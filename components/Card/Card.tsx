@@ -1,16 +1,18 @@
 import styles from "./styles.module.css";
+import Link from "next/link";
 
 type CardProps = {
+  id: string;
   imgUrl: string;
   title: string;
 };
 
-const Card = ({ imgUrl, title }: CardProps) => {
+const Card = ({ id, imgUrl, title }: CardProps) => {
   return (
-    <div className={styles.main}>
+    <Link href={`/item/${id}`} className={styles.main}>
       <img src={imgUrl} />
       <h3>{title}</h3>
-    </div>
+    </Link>
   );
 };
 

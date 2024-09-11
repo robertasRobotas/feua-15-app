@@ -12,6 +12,7 @@ const CardWrapper = ({ inventories }: CardWrapperProps) => {
       {inventories.map((inventory) => {
         return (
           <Card
+            id={inventory.id}
             key={inventory.id}
             imgUrl={inventory.imgUrl}
             title={inventory.title}
