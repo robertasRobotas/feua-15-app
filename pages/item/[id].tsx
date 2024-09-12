@@ -28,7 +28,12 @@ const ItemPage = () => {
     <PageTemplate>
       <div>
         {inventory && (
-          <Item title={inventory.title} imgUrl={inventory.imgUrl} />
+          <Item
+            id={inventory.id}
+            title={inventory.title}
+            imgUrl={inventory.imgUrl}
+            count={inventory.count}
+          />
         )}
       </div>
     </PageTemplate>

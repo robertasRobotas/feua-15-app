@@ -3,4 +3,5 @@ export type Inventory = {
   title: string;
   imgUrl: string;
   officeId: string;
+  count: number;
 };

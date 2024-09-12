@@ -5,11 +5,15 @@ type ButtonProps = {
   onClick: () => void;
   title: string;
   isLoading: boolean;
+  type?: string;
 };
 
-const Button = ({ onClick, title, isLoading }: ButtonProps) => {
+const Button = ({ onClick, title, isLoading, type }: ButtonProps) => {
   return (
-    <button className={styles.main} onClick={onClick}>
+    <button
+      className={`${styles.main} ${type === "DANGER" && styles.danger}`}
+      onClick={onClick}
+    >
       {isLoading ? <Spinner /> : <> {title}</>}
     </button>
   );

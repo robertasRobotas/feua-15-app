@@ -5,7 +5,7 @@ type FooterProps = {
 };
 
 const Footer = ({ copyrightTitle }: FooterProps) => {
-  return <div className={styles.main}>{copyrightTitle}</div>;
+  return <div className={styles.main}>© {copyrightTitle}</div>;
 };
 
 export default Footer;

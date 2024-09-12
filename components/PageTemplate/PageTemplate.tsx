@@ -44,7 +44,7 @@ const PageTemplate = ({ children }: PageTemplateProps) => {
     <div className={styles.wrapper}>
       <Header />
       <div className={styles.main}>{children}</div>
-      <Footer copyrightTitle="sdfsdsd" />
+      <Footer copyrightTitle="Inventory App" />
     </div>
   );
 };

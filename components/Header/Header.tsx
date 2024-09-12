@@ -1,6 +1,7 @@
 import { FC } from "react";
 // import { LinkPrpos } from "../../types/link";
 import styles from "./styles.module.css";
+import Link from "next/link";
 
 type HeaderProps = {
   // links: LinkPrpos[];
@@ -10,18 +11,16 @@ type HeaderProps = {
 const Header: FC<HeaderProps> = ({}) => {
   return (
     <div className={styles.main}>
-      <div className={styles.logo}>Inventory App</div>
+      <Link href="/" className={styles.logo}>
+        Inventory App
+      </Link>
 
       <div className={styles.rigtHandSection}>
-        {/* <ul>
-          {links.map((link) => {
-            return (
-              <li key={link.title}>
-                <a href={link.href}>{link.title}</a>
-              </li>
-            );
-          })}
-        </ul> */}
+        <ul>
+          <li>
+            <Link href="/createItem">Create Inventory</Link>
+          </li>
+        </ul>
 
         {/* <button onClick={logOut}>Sing out</button> */}
       </div>
