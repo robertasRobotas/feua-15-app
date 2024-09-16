@@ -1,5 +1,5 @@
 .main {
-  background-color: rgb(84, 84, 188);
+  background-color: var(--primary-color);
   padding: 1rem;
   text-align: center;
 }

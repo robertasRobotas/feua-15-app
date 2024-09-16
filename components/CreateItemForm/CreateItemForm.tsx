@@ -27,7 +27,7 @@ const CreateItemForm = () => {
       };
 
       const response = await axios.post(
-        `http://localhost:3002/inventories`,
+        `${process.env.SERVER_URL}/inventories`,
         body,
         {
           headers,

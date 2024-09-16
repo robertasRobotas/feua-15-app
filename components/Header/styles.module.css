@@ -1,12 +1,11 @@
 .main {
-  background-color: blanchedalmond;
-  padding: 0.5rem;
+  background-color: var(--primary-color);
+  padding: 2rem;
   height: 60px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-left: 2rem;
-  padding-right: 2rem;
+  box-sizing: border-box;
 }
 
 .logo {
@@ -20,6 +19,11 @@
 }
 
 .rigtHandSection {
+  display: flex;
+  gap: 1rem;
+}
+
+.rigtHandSection ul li {
   display: flex;
   gap: 1rem;
 }

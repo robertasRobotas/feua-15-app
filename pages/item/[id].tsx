@@ -12,7 +12,7 @@ const ItemPage = () => {
 
   const fetchInvenory = async () => {
     const fetchedInventory = await axios.get(
-      `http://localhost:3002/inventories/${router.query.id}`
+      `${process.env.SERVER_URL}/inventories/${router.query.id}`
     );
 
     console.log(fetchedInventory.data.inventory);

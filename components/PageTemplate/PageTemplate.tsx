@@ -1,48 +1,40 @@
-import React, { ReactNode, useEffect } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import styles from "./styles.module.css";
+import { validateUser as validateUserApi } from "../../apiCalls/user";
+import { useRouter } from "next/router";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
-import axios from "axios";
-import cookie from "js-cookie";
-import { useRouter } from "next/router";
 
 type PageTemplateProps = {
   children: ReactNode;
 };
 
 const PageTemplate = ({ children }: PageTemplateProps) => {
+  const [isUserLoggedIn, setUserLoggedIn] = useState(false);
+
   const router = useRouter();
-  const jwt = cookie.get("inventory_app_jwt");
 
   const validateUser = async () => {
     try {
-      const headers = {
-        authorization: jwt,
-      };
-
-      const response = await axios.get(`http://localhost:3002/login/validate`, {
-        headers,
-      });
+      const response = await validateUserApi();
 
       if (response.status !== 200) {
         router.push("/login");
       }
+
+      setUserLoggedIn(true);
     } catch (err) {
       router.push("/login");
     }
   };
 
   useEffect(() => {
-    if (!jwt) {
-      router.push("/login");
-    }
-
     validateUser();
   }, []);
 
   return (
     <div className={styles.wrapper}>
-      <Header />
+      <Header isUserLoggedIn={isUserLoggedIn} />
       <div className={styles.main}>{children}</div>
       <Footer copyrightTitle="Inventory App" />
     </div>

@@ -22,7 +22,7 @@ export default function Home() {
       };
 
       const response = await axios.get(
-        `http://localhost:3002/inventories/company`,
+        `${process.env.SERVER_URL}/inventories/company`,
         { headers }
       );
 

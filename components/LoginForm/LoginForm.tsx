@@ -1,9 +1,9 @@
 import { useState } from "react";
-import axios from "axios";
 import cookie from "js-cookie";
 import styles from "./styles.module.css";
 import { useRouter } from "next/router";
 import Button from "../Button/Button";
+import { login } from "@/apiCalls/user";
 
 const LoginForm = () => {
   const router = useRouter();
@@ -17,15 +17,10 @@ const LoginForm = () => {
     try {
       setButtonLoading(true);
 
-      const body = {
-        email: email,
-        password: password,
-      };
-
-      const response = await axios.post("http://localhost:3002/login", body);
+      const response = await login({ email, password });
 
       if (response.status === 200) {
-        cookie.set("inventory_app_jwt", response.data.token);
+        cookie.set(process.env.JWT_KEY as string, response.data.token);
         cookie.set("company_id", response.data.companyId);
         router.push("/");
       }
