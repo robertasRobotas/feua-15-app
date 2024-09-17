@@ -5,7 +5,7 @@ import React from "react";
 const LoginPage = () => {
   return (
     <div>
-      <Header />
+      <Header isUserLoggedIn={false} />
       <h1 style={{ textAlign: "center", marginTop: "5rem" }}>
         Login to Inventory App
       </h1>
